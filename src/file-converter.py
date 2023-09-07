@@ -7,8 +7,6 @@ def convertMarkdownToHtml(inputfile: str, outputfile: str) -> None:
     with open(inputfile, "r") as readFile:
         markdownContents = readFile.read()
     htmlContents = markdown.markdown(text=markdownContents)
-    print(markdownContents)
-    print(htmlContents)
     with open(outputfile, "w") as writeFile:
         writeFile.write(htmlContents)
 
@@ -39,7 +37,7 @@ if __name__ == "__main__":
         if os.path.exists(path=outputfile) == True:
             if isSpecifiedFileFormat(filePath=outputfile, extension=".html") == True:
                 isOverwrittenAllowed: str = input(
-                    "outputfile already exists.\nDo you want to overwrite?(y/n) >"
+                    "Outputfile already exists. Do you want to overwrite?(y/n) >"
                 )
                 if isOverwrittenAllowed != "y":
                     exit()
